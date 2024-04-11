@@ -88,6 +88,9 @@ class MediaPro:
         self.songList = tk.Listbox(master=self.tabview.tab("Library"), width = 1200, height = 700, background= "black", fg="white")
         self.songList.pack()
 
+        self.queueList = tk.Listbox(master=self.tabview.tab("Queue"), width = 1200, height = 700, background= "black", fg="white")
+        self.queueList.pack()
+
         self.addTag = CTkButton(master=self.tabview.tab("Tags"), text="Add tag", corner_radius = 20, fg_color="#1F1F1F", command=self.show_add_tag_popup)
         self.addTag.pack()
 
@@ -167,6 +170,7 @@ class MediaPro:
         
         for song in self.songs:
             self.songList.insert(END, song.get_song_name().replace(".mp3", ""))
+            self.queueList.insert(END,song.get_song_name().replace(".mp3", ""))
 
         self.songList.selection_set(0)
 
